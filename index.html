@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Pet - Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<!-- IMAGEM DOS PETS -->
+<div class="lado-imagem">
+<img src="imagens/pets.jpg" alt="Cachorro e gato">
+</div>
+<!-- ÁREA DE LOGIN -->
+<div class="lado-login">
+<div class="login-box">
+<h1>Hotel Pet</h1>
+<p class="descricao">
+Sistema de gerenciamento de hospedagem para Pets
+</p>
+<h2>Login</h2>
+<!-- FORMULÁRIO -->
+<form id="loginForm">
+<label for="login">Login</label>
+<input
+type="text"
+id="login"
+placeholder="Digite seu login"
+required
+>
+<label for="senha">Senha</label>
+<input
+type="password"
+id="senha"
+placeholder="Digite sua senha"
+required
+>
+<div class="opcoes">
+<label class="lembrar">
+<input type="checkbox" id="lembrar">
+<span>Manter-me conectado</span>
+</label>
+<a href="#" onclick="esqueciSenha()">
+Esqueci a senha
+</a>
+</div>
+<button type="submit" class="botao-entrar">
+Entrar
+</button>
+</form>
+<!-- OU -->
+<div class="ou">
+<span></span>
+<p>ou</p>
+<span></span>
+</div>
+<!-- FACEBOOK -->
+<button class="botao-social facebook" onclick="loginFacebook()">
+<span class="icone-social">f</span>
+Entrar com Facebook
+</button>
+<!-- TWITTER -->
+<button class="botao-social twitter" onclick="loginTwitter()">
+<span class="icone-social">♥</span>
+Entrar com Twitter
+</button>
+<!-- GOOGLE -->
+<button class="botao-social google" onclick="loginGoogle()">
+<span class="icone-google">G</span>
+Entrar com Google
+</button>
+<!-- CRIAR CONTA -->
+<p class="criar-conta">
+Ainda não possui uma conta?
+<a href="#" onclick="criarConta()">
+Criar uma conta
+</a>
+</p>
+</div>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
