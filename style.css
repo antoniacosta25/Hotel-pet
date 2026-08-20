@@ -1,0 +1,256 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: Arial, Helvetica, sans-serif;
+background-color: #f3f4f6;
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+/* CONTAINER PRINCIPAL */
+.container {
+width: 95%;
+max-width: 1500px;
+min-height: 880px;
+background-color: white;
+border-radius: 25px;
+overflow: hidden;
+display: flex;
+box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10);
+}
+/* LADO DA IMAGEM */
+.lado-imagem {
+width: 53%;
+overflow: hidden;
+}
+.lado-imagem img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+}
+/* LADO DO LOGIN */
+.lado-login {
+width: 47%;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: #ffffff;
+padding: 50px;
+}
+.login-box {
+width: 100%;
+max-width: 520px;
+}
+/* TÍTULO */
+.login-box h1 {
+text-align: center;
+color: #4b2d1e;
+font-size: 46px;
+margin-bottom: 10px;
+}
+.descricao {
+text-align: center;
+color: #666;
+font-size: 20px;
+margin-bottom: 25px;
+}
+.login-box h2 {
+text-align: center;
+color: #222;
+font-size: 30px;
+margin-bottom: 30px;
+}
+/* LABEL */
+form label {
+display: block;
+font-size: 18px;
+font-weight: bold;
+color: #333;
+margin-bottom: 8px;
+}
+/* INPUT */
+form input[type="text"],
+form input[type="password"] {
+width: 100%;
+height: 58px;
+border: 1px solid #cccccc;
+border-radius: 8px;
+padding: 0 16px;
+font-size: 18px;
+margin-bottom: 18px;
+outline: none;
+}
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+border-color: #95643f;
+box-shadow: 0 0 0 2px rgba(149, 100, 63, 0.15);
+}
+form input::placeholder {
+color: #777;
+}
+/* OPÇÕES */
+.opcoes {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 22px;
+font-size: 17px;
+}
+.lembrar {
+display: flex !important;
+align-items: center;
+gap: 8px;
+margin: 0 !important;
+font-weight: normal !important;
+}
+.lembrar input {
+width: 18px;
+height: 18px;
+}
+.opcoes a {
+color: #806044;
+text-decoration: none;
+font-weight: 500;
+}
+.opcoes a:hover {
+text-decoration: underline;
+}
+/* BOTÃO ENTRAR */
+.botao-entrar {
+width: 100%;
+height: 60px;
+border: none;
+border-radius: 8px;
+background-color: #95643f;
+color: white;
+font-size: 22px;
+font-weight: bold;
+cursor: pointer;
+transition: 0.3s;
+}
+.botao-entrar:hover {
+background-color: #754a2c;
+transform: translateY(-1px);
+}
+/* OU */
+.ou {
+display: flex;
+align-items: center;
+gap: 15px;
+margin: 28px 0;
+}
+.ou span {
+height: 1px;
+background-color: #d5d5d5;
+flex: 1;
+}
+.ou p {
+color: #666;
+font-size: 18px;
+}
+/* BOTÕES SOCIAIS */
+.botao-social {
+width: 100%;
+height: 55px;
+background-color: white;
+border: 1px solid #cccccc;
+border-radius: 8px;
+margin-bottom: 10px;
+font-size: 18px;
+color: #555;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+transition: 0.2s;
+}
+.botao-social:hover {
+background-color: #f7f7f7;
+}
+/* ÍCONES */
+.icone-social {
+position: absolute;
+left: 25%;
+font-size: 27px;
+font-weight: bold;
+}
+.facebook .icone-social {
+color: #4267B2;
+}
+.twitter .icone-social {
+color: #1DA1F2;
+}
+.icone-google {
+position: absolute;
+left: 25%;
+font-size: 25px;
+font-weight: bold;
+color: #4285F4;
+}
+/* CRIAR CONTA */
+.criar-conta {
+text-align: center;
+color: #666;
+font-size: 17px;
+margin-top: 20px;
+}
+.criar-conta a {
+color: #805b3b;
+font-weight: bold;
+text-decoration: none;
+}
+.criar-conta a:hover {
+text-decoration: underline;
+}
+/* RESPONSIVO PARA CELULAR */
+@media (max-width: 900px) {
+body {
+padding: 20px;
+}
+.container {
+flex-direction: column;
+width: 100%;
+min-height: auto;
+border-radius: 20px;
+}
+.lado-imagem {
+width: 100%;
+height: 300px;
+}
+.lado-login {
+width: 100%;
+padding: 35px 25px;
+}
+.login-box h1 {
+font-size: 38px;
+}
+.descricao {
+font-size: 16px;
+}
+}
+@media (max-width: 500px) {
+.lado-imagem {
+height: 230px;
+}
+.lado-login {
+padding: 30px 18px;
+}
+.login-box h1 {
+font-size: 32px;
+}
+.login-box h2 {
+font-size: 26px;
+}
+.opcoes {
+font-size: 14px;
+}
+.botao-social {
+font-size: 16px;
+}
+}
