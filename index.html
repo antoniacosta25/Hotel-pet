@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f1ec;
+    min-height: 100vh;
+}
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.10);
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2a65a;
+    border-radius: 50%;
+    font-size: 35px;
+}
+
+h1 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 8px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #777777;
+    margin-bottom: 30px;
+}
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333333;
+    font-weight: bold;
+}
+
+.campo input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+.campo input:focus {
+    border-color: #f2a65a;
+    box-shadow: 0 0 0 3px rgba(242, 166, 90, 0.20);
+}
+
+.opcoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.opcoes a,
+.cadastro a {
+    color: #d9822b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.opcoes a:hover,
+.cadastro a:hover {
+    text-decoration: underline;
+}
+
+.botao {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f2a65a;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background-color: #d9822b;
+    transform: translateY(-2px);
+}
+
+.cadastro {
+    text-align: center;
+    margin-top: 25px;
+    color: #777777;
+    font-size: 14px;
+}
