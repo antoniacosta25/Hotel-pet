@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meus Pets - Hotel Pet</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>🐾 Hotel Pet</h1>
+
+        <nav>
+            <a href="inicio.html">Início</a>
+            <a href="servicos.html">Serviços</a>
+            <a href="reservas.html">Reservas</a>
+            <a href="cadastro-pet.html">Cadastrar Pet</a>
+        </nav>
+    </header>
+
+    <main class="pets-container">
+
+        <h2>Meus Pets 🐶🐱</h2>
+
+        <p class="descricao">
+            Confira os pets cadastrados no Hotel Pet.
+        </p>
+
+        <section class="lista-pets">
+
+            <div class="pet-card">
+
+                <div class="pet-imagem">
+                    🐶
+                </div>
+
+                <h3>Thor</h3>
+
+                <p><strong>Tipo:</strong> Cachorro</p>
+                <p><strong>Raça:</strong> Golden Retriever</p>
+                <p><strong>Idade:</strong> 3 anos</p>
+
+                <a href="perfil-pet.html" class="botao">
+                    Ver Perfil
+                </a>
+
+            </div>
+
+
+            <div class="pet-card">
+
+                <div class="pet-imagem">
+                    🐱
+                </div>
+
+                <h3>Luna</h3>
+
+                <p><strong>Tipo:</strong> Gato</p>
+                <p><strong>Raça:</strong> Siamês</p>
+                <p><strong>Idade:</strong> 2 anos</p>
+
+                <a href="perfil-pet.html" class="botao">
+                    Ver Perfil
+                </a>
+
+            </div>
+
+
+            <div class="pet-card adicionar">
+
+                <div class="pet-imagem">
+                    ➕
+                </div>
+
+                <h3>Adicionar Pet</h3>
+
+                <p>
+                    Cadastre outro animal de estimação.
+                </p>
+
+                <a href="cadastro-pet.html" class="botao">
+                    Cadastrar Pet
+                </a>
+
+            </div>
+
+        </section>
+
+        <a href="inicio.html" class="voltar">
+            ← Voltar para o início
+        </a>
+
+    </main>
+
+    <footer>
+        <p>
+            © 2026 Hotel Pet - Cuidando com carinho do seu melhor amigo 🐾
+        </p>
+    </footer>
+
+</body>
+</html>
