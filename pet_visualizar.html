@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!-- Página documentada: Visualizar Pet - Hotel Pet. -->
+<!-- Página de visualização de pet. -->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualizar Pet - Hotel Pet</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <!-- Estrutura geral que organiza a navegação lateral e o conteúdo da página. -->
+  <div class="app-shell">
+    <!-- Menu lateral -->
+    <aside class="sidebar">
+      <!-- Marca do Hotel Pet exibida na navegação. -->
+      <div class="brand">
+        <img src="imagens/logo.svg" alt="Logo do Hotel Pet">
+        <span>Hotel Pet</span>
+      </div>
+      <!-- Links para as áreas principais do sistema. -->
+      <nav class="sidebar__nav" aria-label="Navegação principal">
+        <a href="pets.html" class="sidebar__link is-active" aria-current="page">🐾 Pet</a>
+        <a href="usuarios.html" class="sidebar__link">👤 Usuários</a>
+        <a href="configuracoes.html" class="sidebar__link">⚙️ Configurações</a>
+        <a href="reservas.html" class="sidebar__link">📖 Reservas</a>
+      </nav>
+    </aside>
+
+    <!-- Área principal -->
+    <div class="app-main">
+      <!-- Cabeçalho -->
+      <header class="topbar">
+        <a href="perfil.html" class="topbar__user">
+          <img src="imagens/avatar-joao.svg" alt="Foto de João da Silva">
+          <span>João da Silva</span>
+        </a>
+      </header>
+
+      <!-- Conteúdo da página -->
+      <main class="page-content">
+        <!-- Caminho de navegação até a página atual. -->
+        <div class="breadcrumb"><a href="index.html">Home</a> / <a href="pets.html">Pets</a> / Toto</div>
+        <h1 class="page-title">Toto</h1>
+
+        <!-- Ações disponíveis para os registros ou para a página. -->
+        <div class="page-actions">
+          <a href="pet_editar.html" class="button button--primary">✏️ Editar pet</a>
+          <a href="pets.html" class="button button--danger">🗑️ Deletar pet</a>
+        </div>
+
+        <!-- Bloco visual que agrupa informações relacionadas. -->
+        <section class="card">
+          <h2>Informações do pet</h2>
+          <div class="form-grid">
+            <div class="form-field form-field--full">
+              <div class="pet-avatar--featured">🐶</div>
+            </div>
+            <div class="form-field">
+              <label>Nome</label>
+              <span>Toto</span>
+            </div>
+            <div class="form-field">
+              <label>Tipo de animal</label>
+              <span>Cachorro</span>
+            </div>
+            <div class="form-field">
+              <label>Raça</label>
+              <span>Poodle</span>
+            </div>
+            <div class="form-field">
+              <label>Tamanho</label>
+              <span>Pequeno</span>
+            </div>
+            <div class="form-field">
+              <label>Proprietário</label>
+              <span>Maria da Silva</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Bloco visual que agrupa informações relacionadas. -->
+        <section class="card">
+          <h2>Histórico de reservas</h2>
+          <div class="table-scroll">
+          <!-- Tabela com os registros exibidos nesta página. -->
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Check-in</th>
+                <th>Check-out</th>
+                <th>Diárias</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#1</td>
+                <td>10/08/2026</td>
+                <td>14/08/2026</td>
+                <td>4</td>
+                <td><span class="status-badge status-badge--in-progress">Em andamento</span></td>
+                <td><a href="reserva_visualizar.html" class="row-action row-action--view">Visualizar</a></td>
+              </tr>
+              <tr>
+                <td>#7</td>
+                <td>20/06/2026</td>
+                <td>25/06/2026</td>
+                <td>5</td>
+                <td><span class="status-badge status-badge--complete">Finalizada</span></td>
+                <td><a href="reserva_visualizar.html" class="row-action row-action--view">Visualizar</a></td>
+              </tr>
+              <tr>
+                <td>#11</td>
+                <td>05/04/2026</td>
+                <td>08/04/2026</td>
+                <td>3</td>
+                <td><span class="status-badge status-badge--complete">Finalizada</span></td>
+                <td><a href="reserva_visualizar.html" class="row-action row-action--view">Visualizar</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

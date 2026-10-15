@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- Página documentada: Nova Reserva - Hotel Pet. -->
+<!-- Página de cadastro de reserva. -->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova Reserva - Hotel Pet</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <!-- Estrutura geral que organiza a navegação lateral e o conteúdo da página. -->
+  <div class="app-shell">
+    <!-- Menu lateral -->
+    <aside class="sidebar">
+      <!-- Marca do Hotel Pet exibida na navegação. -->
+      <div class="brand">
+        <img src="imagens/logo.svg" alt="Logo do Hotel Pet">
+        <span>Hotel Pet</span>
+      </div>
+      <!-- Links para as áreas principais do sistema. -->
+      <nav class="sidebar__nav" aria-label="Navegação principal">
+        <a href="pets.html" class="sidebar__link">🐾 Pet</a>
+        <a href="usuarios.html" class="sidebar__link">👤 Usuários</a>
+        <a href="configuracoes.html" class="sidebar__link">⚙️ Configurações</a>
+        <a href="reservas.html" class="sidebar__link is-active" aria-current="page">📖 Reservas</a>
+      </nav>
+    </aside>
+
+    <!-- Área principal -->
+    <div class="app-main">
+      <!-- Cabeçalho -->
+      <header class="topbar">
+        <a href="perfil.html" class="topbar__user">
+          <img src="imagens/avatar-joao.svg" alt="Foto de João da Silva">
+          <span>João da Silva</span>
+        </a>
+      </header>
+
+      <!-- Conteúdo da página -->
+      <main class="page-content">
+        <!-- Caminho de navegação até a página atual. -->
+        <div class="breadcrumb"><a href="index.html">Home</a> / <a href="reservas.html">Reservas</a> / Nova reserva</div>
+        <h1 class="page-title">Nova Reserva</h1>
+
+        <!-- Formulário com os campos e a ação de envio desta tela. -->
+        <form action="reservas.html" method="get" class="card">
+          <h2>Dados da reserva</h2>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="pet">Pet</label>
+              <select id="pet" name="pet">
+                <option selected disabled>Selecione o pet</option>
+                <option>Toto (Poodle) - Maria da Silva</option>
+                <option>Mia (Siamês) - José da Silva</option>
+                <option>Bolinha (Angorá) - Ana Souza</option>
+                <option>Piu-Piu (Calopsita) - Carlos Mendes</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="cliente">Cliente</label>
+              <input type="text" id="cliente" name="cliente" placeholder="Selecionado automaticamente">
+            </div>
+            <div class="form-field">
+              <label for="checkin">Check-in</label>
+              <input type="date" id="checkin" name="checkin">
+            </div>
+            <div class="form-field">
+              <label for="checkout">Check-out</label>
+              <input type="date" id="checkout" name="checkout">
+            </div>
+            <div class="form-field">
+              <label for="tipo">Tipo de estadia</label>
+              <select id="tipo" name="tipo">
+                <option>Hotel (diária R$ 35,00)</option>
+                <option>Creche (período diurno)</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="status">Status</label>
+              <select id="status" name="status">
+                <option>Pendente</option>
+                <option selected>Em andamento</option>
+                <option>Finalizada</option>
+              </select>
+            </div>
+            <div class="form-field form-field--full">
+              <label for="obs">Informações sobre o pet</label>
+              <textarea id="obs" name="obs" placeholder="Alimentação, medicação, horários, preferências..."></textarea>
+            </div>
+
+            <div class="stay-total">
+              <span>Total de 3 diárias × R$ 35,00 =</span>
+              <strong>R$ 105,00</strong>
+            </div>
+          </div>
+
+          <!-- Ações disponíveis para os registros ou para a página. -->
+          <div class="page-actions">
+            <button type="submit" class="button button--primary">Salvar reserva</button>
+            <a href="reservas.html" class="button button--secondary">Cancelar</a>
+          </div>
+        </form>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

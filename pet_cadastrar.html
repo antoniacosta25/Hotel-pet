@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!-- Página documentada: Novo Pet - Hotel Pet. -->
+<!-- Página de cadastro de pet. -->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novo Pet - Hotel Pet</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <!-- Estrutura geral que organiza a navegação lateral e o conteúdo da página. -->
+  <div class="app-shell">
+    <!-- Menu lateral -->
+    <aside class="sidebar">
+      <!-- Marca do Hotel Pet exibida na navegação. -->
+      <div class="brand">
+        <img src="imagens/logo.svg" alt="Logo do Hotel Pet">
+        <span>Hotel Pet</span>
+      </div>
+      <!-- Links para as áreas principais do sistema. -->
+      <nav class="sidebar__nav" aria-label="Navegação principal">
+        <a href="pets.html" class="sidebar__link is-active" aria-current="page">🐾 Pet</a>
+        <a href="usuarios.html" class="sidebar__link">👤 Usuários</a>
+        <a href="configuracoes.html" class="sidebar__link">⚙️ Configurações</a>
+        <a href="reservas.html" class="sidebar__link">📖 Reservas</a>
+      </nav>
+    </aside>
+
+    <!-- Área principal -->
+    <div class="app-main">
+      <!-- Cabeçalho -->
+      <header class="topbar">
+        <a href="perfil.html" class="topbar__user">
+          <img src="imagens/avatar-joao.svg" alt="Foto de João da Silva">
+          <span>João da Silva</span>
+        </a>
+      </header>
+
+      <!-- Conteúdo da página -->
+      <main class="page-content">
+        <!-- Caminho de navegação até a página atual. -->
+        <div class="breadcrumb"><a href="index.html">Home</a> / <a href="pets.html">Pets</a> / Novo pet</div>
+        <h1 class="page-title">Novo Pet</h1>
+
+        <!-- Formulário com os campos e a ação de envio desta tela. -->
+        <form action="pets.html" method="get" class="card">
+          <h2>Dados do pet</h2>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" placeholder="Nome do pet">
+            </div>
+            <div class="form-field">
+              <label for="tipo">Tipo de animal</label>
+              <select id="tipo" name="tipo">
+                <option selected disabled>Selecione o tipo</option>
+                <option>Cachorro</option>
+                <option>Gato</option>
+                <option>Coelho</option>
+                <option>Ave</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="raca">Raça</label>
+              <input type="text" id="raca" name="raca" placeholder="Ex.: Poodle">
+            </div>
+            <div class="form-field">
+              <label for="proprietario">Proprietário</label>
+              <select id="proprietario" name="proprietario">
+                <option selected disabled>Selecione o cliente</option>
+                <option>Maria da Silva</option>
+                <option>José da Silva</option>
+                <option>Ana Souza</option>
+                <option>Carlos Mendes</option>
+              </select>
+            </div>
+            <div class="form-field form-field--full">
+              <label>Tamanho</label>
+              <div class="form-options">
+                <label><input type="radio" name="tamanho" value="pequeno"> Pequeno</label>
+                <label><input type="radio" name="tamanho" value="medio"> Médio</label>
+                <label><input type="radio" name="tamanho" value="grande"> Grande</label>
+              </div>
+            </div>
+            <div class="form-field form-field--full">
+              <label for="foto">Foto do pet</label>
+              <input type="file" id="foto" name="foto">
+            </div>
+          </div>
+
+          <!-- Ações disponíveis para os registros ou para a página. -->
+          <div class="page-actions">
+            <button type="submit" class="button button--primary">Salvar pet</button>
+            <a href="pets.html" class="button button--secondary">Cancelar</a>
+          </div>
+        </form>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
