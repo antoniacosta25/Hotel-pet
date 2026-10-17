@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Antônia Graciela Silva Costa">
+  <title>Visualizar Pet - Hotel Pet</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <!-- Casca principal: navegação lateral ao lado do conteúdo da tela. -->
+  <div class="app-shell">
+    <!-- Navegação principal entre os módulos do hotel. -->
+    <aside class="sidebar">
+      <!-- Marca clicável: retorna ao painel. -->
+      <a class="brand" href="painel.html" aria-label="Hotel Pet - página inicial">
+        <img src="imagens/logo.svg" alt="">
+        <span>Hotel Pet</span>
+      </a>
+      <!-- Acesso às listas de pets, equipe, configurações e reservas. -->
+      <nav class="sidebar__nav" aria-label="Navegação principal">
+        <a href="pets.html" class="sidebar__link is-active" aria-current="page" aria-label="Pets" title="Pets"><img src="imagens/icones/pets.svg" class="nav-icon" alt=""><span>Pet</span></a>
+        <a href="usuarios.html" class="sidebar__link" aria-label="Usuários" title="Usuários"><img src="imagens/icones/users.svg" class="nav-icon" alt=""><span>Usuários</span></a>
+        <a href="configuracoes.html" class="sidebar__link" aria-label="Configurações" title="Configurações"><img src="imagens/icones/settings.svg" class="nav-icon" alt=""><span>Configurações</span></a>
+        <a href="reservas.html" class="sidebar__link" aria-label="Reservas" title="Reservas"><img src="imagens/icones/reservas.svg" class="nav-icon" alt=""><span>Reservas</span></a>
+      </nav>
+    </aside>
+
+    <!-- Área de trabalho ao lado do menu. -->
+    <div class="app-main">
+      <!-- Faixa rosa com acesso ao perfil da gerente. -->
+      <header class="topbar">
+        <a href="perfil.html" class="topbar__user" aria-label="Abrir perfil de Antônia Graciela Silva Costa">
+          <img src="imagens/antonia-graciela-perfil.png" alt="Foto de Antônia Graciela Silva Costa">
+          <span class="topbar__identity"><strong>Antônia Graciela Silva Costa</strong><small>Gerente</small></span>
+        </a>
+      </header>
+
+      <!-- Conteúdo específico desta tela. -->
+      <main class="page-content">
+        <!-- Breadcrumb com retorno ao painel e, quando aplicável, à lista. -->
+        <div class="breadcrumb"><a href="painel.html">Home</a> / <a href="pets.html">Pets</a> / Toto</div>
+        <h1 class="page-title">Toto</h1>
+
+        <!-- Comandos disponíveis para continuar ou voltar ao módulo. -->
+        <div class="page-actions">
+          <a href="pet_editar.html" class="button button--primary">✏️ Editar pet</a>
+          <a href="pets.html" class="button button--danger">🗑️ Deletar pet</a>
+        </div>
+
+        <!-- Seção que reúne informações do mesmo assunto. -->
+        <section class="card">
+          <h2>Informações do pet</h2>
+          <div class="form-grid">
+            <div class="form-field form-field--full">
+              <div class="pet-avatar--featured">🐶</div>
+            </div>
+            <div class="form-field">
+              <label>Nome</label>
+              <span>Toto</span>
+            </div>
+            <div class="form-field">
+              <label>Tipo de animal</label>
+              <span>Cachorro</span>
+            </div>
+            <div class="form-field">
+              <label>Raça</label>
+              <span>Poodle</span>
+            </div>
+            <div class="form-field">
+              <label>Tamanho</label>
+              <span>Pequeno</span>
+            </div>
+            <div class="form-field">
+              <label>Proprietário</label>
+              <span>Maria da Silva</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Seção que reúne informações do mesmo assunto. -->
+        <section class="card">
+          <h2>Histórico de reservas</h2>
+          <div class="table-scroll">
+          <!-- Dados de exemplo organizados em colunas para leitura rápida. -->
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Check-in</th>
+                <th>Check-out</th>
+                <th>Diárias</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#1</td>
+                <td>10/08/2026</td>
+                <td>14/08/2026</td>
+                <td>4</td>
+                <td><span class="status-badge status-badge--in-progress">Em andamento</span></td>
+                <td><a href="reserva_visualizar.html" class="row-action row-action--view">Visualizar</a></td>
+              </tr>
+              <tr>
+                <td>#7</td>
+                <td>20/06/2026</td>
+                <td>25/06/2026</td>
+                <td>5</td>
+                <td><span class="status-badge status-badge--complete">Finalizada</span></td>
+                <td><a href="reserva_visualizar.html" class="row-action row-action--view">Visualizar</a></td>
+              </tr>
+              <tr>
+                <td>#11</td>
+                <td>05/04/2026</td>
+                <td>08/04/2026</td>
+                <td>3</td>
+                <td><span class="status-badge status-badge--complete">Finalizada</span></td>
+                <td><a href="reserva_visualizar.html" class="row-action row-action--view">Visualizar</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </section>
+      </main>
+      <!-- Crédito de autoria do protótipo acadêmico. -->
+      <footer class="site-footer">Autora: Antônia Graciela Silva Costa · Programação Web II (2026.2)</footer>
+
+    </div>
+  </div>
+</body>
+</html>
+

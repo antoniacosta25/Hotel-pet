@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Antônia Graciela Silva Costa">
+  <title>Editar Pet - Hotel Pet</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <!-- Casca principal: navegação lateral ao lado do conteúdo da tela. -->
+  <div class="app-shell">
+    <!-- Navegação principal entre os módulos do hotel. -->
+    <aside class="sidebar">
+      <!-- Marca clicável: retorna ao painel. -->
+      <a class="brand" href="painel.html" aria-label="Hotel Pet - página inicial">
+        <img src="imagens/logo.svg" alt="">
+        <span>Hotel Pet</span>
+      </a>
+      <!-- Acesso às listas de pets, equipe, configurações e reservas. -->
+      <nav class="sidebar__nav" aria-label="Navegação principal">
+        <a href="pets.html" class="sidebar__link is-active" aria-current="page" aria-label="Pets" title="Pets"><img src="imagens/icones/pets.svg" class="nav-icon" alt=""><span>Pet</span></a>
+        <a href="usuarios.html" class="sidebar__link" aria-label="Usuários" title="Usuários"><img src="imagens/icones/users.svg" class="nav-icon" alt=""><span>Usuários</span></a>
+        <a href="configuracoes.html" class="sidebar__link" aria-label="Configurações" title="Configurações"><img src="imagens/icones/settings.svg" class="nav-icon" alt=""><span>Configurações</span></a>
+        <a href="reservas.html" class="sidebar__link" aria-label="Reservas" title="Reservas"><img src="imagens/icones/reservas.svg" class="nav-icon" alt=""><span>Reservas</span></a>
+      </nav>
+    </aside>
+
+    <!-- Área de trabalho ao lado do menu. -->
+    <div class="app-main">
+      <!-- Faixa rosa com acesso ao perfil da gerente. -->
+      <header class="topbar">
+        <a href="perfil.html" class="topbar__user" aria-label="Abrir perfil de Antônia Graciela Silva Costa">
+          <img src="imagens/antonia-graciela-perfil.png" alt="Foto de Antônia Graciela Silva Costa">
+          <span class="topbar__identity"><strong>Antônia Graciela Silva Costa</strong><small>Gerente</small></span>
+        </a>
+      </header>
+
+      <!-- Conteúdo específico desta tela. -->
+      <main class="page-content">
+        <!-- Breadcrumb com retorno ao painel e, quando aplicável, à lista. -->
+        <div class="breadcrumb"><a href="painel.html">Home</a> / <a href="pets.html">Pets</a> / Editar Toto</div>
+        <h1 class="page-title">Editar Pet</h1>
+
+        <!-- Formulário desta tela; os rótulos identificam cada campo. -->
+        <form action="pets.html" method="get" class="card">
+          <h2>Dados do pet</h2>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" value="Toto">
+            </div>
+            <div class="form-field">
+              <label for="tipo">Tipo de animal</label>
+              <select id="tipo" name="tipo">
+                <option selected>Cachorro</option>
+                <option>Gato</option>
+                <option>Coelho</option>
+                <option>Ave</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="raca">Raça</label>
+              <select id="raca" name="raca">
+                <optgroup label="Cães"><option selected>Poodle</option><option>Labrador</option><option>Golden Retriever</option><option>Beagle</option><option>SRD</option></optgroup>
+                <optgroup label="Gatos"><option>Siamês</option><option>Persa</option><option>Maine Coon</option><option>SRD</option></optgroup>
+                <optgroup label="Coelhos"><option>Angorá</option><option>Mini Lop</option><option>Rex</option></optgroup>
+                <optgroup label="Aves"><option>Calopsita</option><option>Periquito</option><option>Canário</option></optgroup>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="proprietario">Proprietário</label>
+              <select id="proprietario" name="proprietario">
+                <option selected>Maria da Silva</option>
+                <option>José da Silva</option>
+                <option>Ana Souza</option>
+                <option>Carlos Mendes</option>
+              </select>
+            </div>
+            <div class="form-field form-field--full">
+              <label>Tamanho</label>
+              <div class="form-options">
+                <label><input type="radio" name="tamanho" value="pequeno" checked> Pequeno</label>
+                <label><input type="radio" name="tamanho" value="medio"> Médio</label>
+                <label><input type="radio" name="tamanho" value="grande"> Grande</label>
+              </div>
+            </div>
+            <div class="form-field form-field--full">
+              <label for="foto">Foto do pet</label>
+              <input type="file" id="foto" name="foto">
+            </div>
+          </div>
+
+          <!-- Comandos disponíveis para continuar ou voltar ao módulo. -->
+          <div class="page-actions">
+            <button type="submit" class="button button--primary">Salvar alterações</button>
+            <a href="pets.html" class="button button--secondary">Cancelar</a>
+          </div>
+        </form>
+      </main>
+      <!-- Crédito de autoria do protótipo acadêmico. -->
+      <footer class="site-footer">Autora: Antônia Graciela Silva Costa · Programação Web II (2026.2)</footer>
+
+    </div>
+  </div>
+</body>
+</html>
+
