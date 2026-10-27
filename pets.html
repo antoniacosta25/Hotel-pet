@@ -213,7 +213,7 @@ document.getElementById("btnPesquisar").addEventListener("click", () => {
     ].map(texto => texto.toLowerCase());
 
     const corresponde = valores.every((valor, i) =>
-      valor === "" || dados[i].includes(valor)
+      valor === "" || ( dados[i]||"").includes(valor)
     );
 
     linha.style.display = corresponde ? "" : "none";
