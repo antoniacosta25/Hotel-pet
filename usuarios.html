@@ -97,7 +97,6 @@
             </div>
           </div>
         </section>
-
         <!-- Seção que reúne informações do mesmo assunto. -->
         <section class="card">
           <div class="table-scroll">
@@ -214,25 +213,24 @@ document.getElementById("btnPesquisar").addEventListener("click", () => {
         celulas[5]?.innerText || "",
         celulas[6]?.innerText || ""
     ].map(texto => texto.trim().toLowerCase());
-    const corresponde = valores.every((valor, i) => {
+   const corresponde = valores.every((valor, i) => {
     if (valor === "") return true;
-
-    if (i === 1 || i === 2) return true;
-
-    const indiceColuna = {
-        3: 1,
-        4: 2,
-        5: 4,
-        6: 3
-    };
-
-    if (i === 0) return true;
-
-    const coluna = indiceColuna[i];
-
-    return coluna !== undefined &&
-        (dados[coluna] || "").includes(valor);
-    });
+    const campo = document.getElementById(campos[i]);
+    if (!campo) return true;
+    const texto = campo.value.trim().toLowerCase();
+   const texto = campo.value.trim().toLowerCase();
+const indiceColuna = {
+    0: 0,
+    3: 1,
+    4: 2,
+    5: 4,
+    6: 3
+};
+if (i === 1 || i === 2) return true;
+const coluna = indiceColuna[i];
+return coluna !== undefined &&
+    (dados[coluna] || "").includes(texto);
+});
     linha.style.display = corresponde ? "" : "none"; 
 });
 document.getElementById("btnLimpar").addEventListener("click", () => {
