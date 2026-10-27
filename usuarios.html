@@ -215,8 +215,23 @@ document.getElementById("btnPesquisar").addEventListener("click", () => {
         celulas[6]?.innerText || ""
     ].map(texto => texto.trim().toLowerCase());
     const corresponde = valores.every((valor, i) => {
-        if (valor === "") return true;
-        return dados[i].includes(valor);
+    if (valor === "") return true;
+
+    if (i === 1 || i === 2) return true;
+
+    const indiceColuna = {
+        3: 1,
+        4: 2,
+        5: 4,
+        6: 3
+    };
+
+    if (i === 0) return true;
+
+    const coluna = indiceColuna[i];
+
+    return coluna !== undefined &&
+        (dados[coluna] || "").includes(valor);
     });
     linha.style.display = corresponde ? "" : "none"; 
 });
