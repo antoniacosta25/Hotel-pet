@@ -185,62 +185,106 @@
   </div>
 </body>
 <script>
-const campos = [
-  "f-id",
-  "f-criado-de",
-  "f-criado-ate",
-  "f-email",
-  "f-nome",
-  "f-status",
-  "f-funcao"
-];
-const tabela = document.querySelector(".data-table");
-const linhas = tabela.querySelectorAll("tbody tr");
-document.getElementById("btnPesquisar").addEventListener("click", () => {
-  const valores = campos.map(id =>
-    (document.getElementById(id)?.value || "")
+document.addEventListener("DOMContentLoaded", function () {
+  const campos = [
+    "f-id",
+    "f-criado-de",
+    "f-criado-ate",
+    "f-email",
+    "f-nome",
+    "f-status",
+    "f-funcao"
+  ];
+  const botaoPesquisar = document.getElementById("btnPesquisar");
+  const botaoLimpar = document.getElementById("btnLimpar");
+  const tabela = document.querySelector(".data-table");
+  if (!botaoPesquisar || !botaoLimpar || !tabela) {
+    console.error("Não foi possível localizar os botões ou a tabela.");
+    return;
+  }
+  const normalizar = (texto) =>
+    (texto || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
       .trim()
-      .toLowerCase()
-  );
-  linhas.forEach(linha => {
-    const celulas = linha.querySelectorAll("td");
-    const dados = [
-        celulas[0]?.innerText || "",
-        celulas[1]?.innerText || "",
-        celulas[2]?.innerText || "",
-        celulas[3]?.innerText || "",
-        celulas[4]?.innerText || "",
-        celulas[5]?.innerText || "",
-        celulas[6]?.innerText || ""
-    ].map(texto => texto.trim().toLowerCase());
-   const corresponde = valores.every((valor, i) => {
-    if (valor === "") return true;
-    const campo = document.getElementById(campos[i]);
-    if (!campo) return true;
-    const texto = campo.value.trim().toLowerCase();
-const indiceColuna = {
-    0: 0,
-    3: 1,
-    4: 2,
-    5: 4,
-    6: 3
-};
-if (i === 1 || i === 2) return true;
-const coluna = indiceColuna[i];
-return coluna !== undefined &&
-    (dados[coluna] || "").includes(texto);
-});
-    linha.style.display = corresponde ? "" : "none"; 
-});
-document.getElementById("btnLimpar").addEventListener("click", () => {
-  campos.forEach(id => {
-    const campo = document.getElementById(id);
-    if (campo) campo.value = "";
+      .toLowerCase();
+  const converterData = (texto) => {
+    const partes = (texto || "").trim().split("/");
+    if (partes.length !== 3) return "";
+    const [dia, mes, ano] = partes;
+    if (!dia || !mes || !ano) return "";
+    return ${ano}-${mes.padStart(2, "0")}-${dia.padStart(2, "0")};
+  };
+  botaoPesquisar.addEventListener("click", function () {
+    const valores = {};
+    campos.forEach((id) => {
+      const campo = document.getElementById(id);
+      valores[id] = campo ? campo.value.trim() : "";
+    });
+    const linhas = tabela.querySelectorAll("tbody tr");
+    linhas.forEach((linha) => {
+      const celulas = linha.querySelectorAll("td");
+      if (celulas.length < 7) {
+        linha.style.display = "";
+        return;
+      }
+      const email = normalizar(celulas[1].innerText);
+      const nome = normalizar(celulas[2].innerText);
+      const funcao = normalizar(celulas[3].innerText);
+      const status = normalizar(celulas[4].innerText);
+      const data = converterData(celulas[5].innerText);
+      const idLinha =
+        linha.dataset.id ||
+        linha.querySelector("[data-id]")?.dataset.id ||
+        "";
+      const buscaId = normalizar(valores["f-id"]);
+      const buscaEmail = normalizar(valores["f-email"]);
+      const buscaNome = normalizar(valores["f-nome"]);
+      const buscaStatus = normalizar(valores["f-status"]);
+      const buscaFuncao = normalizar(valores["f-funcao"]);
+      const dataDe = valores["f-criado-de"];
+      const dataAte = valores["f-criado-ate"];
+      const correspondeId =
+        !buscaId || normalizar(idLinha).includes(buscaId);
+      const correspondeEmail =
+        !buscaEmail || email.includes(buscaEmail);
+      const correspondeNome =
+        !buscaNome || nome.includes(buscaNome);
+      const correspondeStatus =
+        !buscaStatus ||
+        buscaStatus === "todos" ||
+        buscaStatus === "todas" ||
+        status.includes(buscaStatus);
+      const correspondeFuncao =
+        !buscaFuncao ||
+        buscaFuncao === "todas" ||
+        buscaFuncao === "todos" ||
+        funcao.includes(buscaFuncao);
+      const correspondeDataDe =
+        !dataDe || (data && data >= dataDe);
+      const correspondeDataAte =
+        !dataAte || (data && data <= dataAte);
+      const corresponde =
+        correspondeId &&
+        correspondeEmail &&
+        correspondeNome &&
+        correspondeStatus &&
+        correspondeFuncao &&
+        correspondeDataDe &&
+        correspondeDataAte;
+      linha.style.display = corresponde ? "" : "none";
+    });
   });
-  linhas.forEach(linha => {
-    linha.style.display = "";
+  botaoLimpar.addEventListener("click", function () {
+    campos.forEach((id) => {
+      const campo = document.getElementById(id);
+      if (campo) campo.value = "";
+    });
+    tabela.querySelectorAll("tbody tr").forEach((linha) => {
+      linha.style.display = "";
+    });
   });
 });
-</script> 
+</script>
 </html>
 
