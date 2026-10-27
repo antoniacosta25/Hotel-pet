@@ -197,28 +197,7 @@ const campos = [
 const tabela = document.querySelector(".data-table");
 const linhas = tabela.querySelectorAll("tbody tr");
 
-document.getElementById("btnPesquisar").addEventListener("click", () => {
-  const valores = campos.map(id =>
-    (document.getElementById(id)?.value || "").trim().toLowerCase()
-  );
 
-  linhas.forEach(linha => {
-    const celulas = linha.querySelectorAll("td");
-    const dados = [
-      celulas[1]?.innerText || "",
-      celulas[2]?.innerText || "",
-      celulas[3]?.innerText || "",
-      celulas[4]?.innerText || "",
-      celulas[5]?.innerText || ""
-    ].map(texto => texto.toLowerCase());
-
-    const corresponde = valores.every((valor, i) =>
-      valor === "" || ( dados[i]||"").includes(valor)
-    );
-
-    linha.style.display = corresponde ? "" : "none";
-  });
-});
 
 document.getElementById("btnLimpar").addEventListener("click", () => {
   campos.forEach(id => {
