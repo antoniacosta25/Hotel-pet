@@ -218,7 +218,7 @@ document.getElementById("btnPesquisar").addEventListener("click", () => {
     ].map(texto => texto.trim().toLowerCase());
 const corresponde = valores.every((valor, i) => {
     if (valor === "") return true;
-    return dados[i].includes(valor);
+    return dados.some(dado => dado.includes(valor));
 });
     linha.style.display = corresponde ? "" : "none";
   });
