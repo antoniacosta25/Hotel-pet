@@ -201,15 +201,13 @@ document.getElementById("btnPesquisar").addEventListener("click", () => {
 
   linhas.forEach(linha => {
     const celulas = linha.querySelectorAll("td");
-
-    const dados = [
-      celulas[1]?.innerText || "",
-      celulas[2]?.innerText || "",
-      celulas[3]?.innerText || "",
-      celulas[4]?.innerText || "",
-      celulas[5]?.innerText || ""
-    ].map(texto => texto.trim().toLowerCase());
-
+   const dados = [
+  celulas[1]?.innerText || "",
+  celulas[2]?.innerText || "",
+  celulas[3]?.innerText || "",
+  celulas[4]?.innerText || "",
+  celulas[5]?.innerText || ""
+].map(texto => texto.trim().toLowerCase());
     const corresponde = valores.every((valor, i) =>
       valor === "" || dados[i].includes(valor)
     );
