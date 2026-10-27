@@ -195,41 +195,36 @@ const campos = [
   "f-status",
   "f-funcao"
 ];
-
 const tabela = document.querySelector(".data-table");
 const linhas = tabela.querySelectorAll("tbody tr");
-
 document.getElementById("btnPesquisar").addEventListener("click", () => {
   const valores = campos.map(id =>
     (document.getElementById(id)?.value || "")
       .trim()
       .toLowerCase()
   );
-
   linhas.forEach(linha => {
     const celulas = linha.querySelectorAll("td");
     const dados = [
-      celulas[1]?.innerText || "",
-      celulas[2]?.innerText || "",
-      celulas[3]?.innerText || "",
-      celulas[4]?.innerText || "",
-      celulas[5]?.innerText || "",
-      celulas[6]?.innerText || ""
+        celulas[0]?.innerText || "",
+        celulas[1]?.innerText || "",
+        celulas[2]?.innerText || "",
+        celulas[3]?.innerText || "",
+        celulas[4]?.innerText || "",
+        celulas[5]?.innerText || "",
+        celulas[6]?.innerText || ""
     ].map(texto => texto.trim().toLowerCase());
-const corresponde = valores.every((valor, i) => {
-    if (valor === "") return true;
-    return dados.some(dado => dado.includes(valor));
+    const corresponde = valores.every((valor, i) => {
+        if (valor === "") return true;
+        return dados[i].includes(valor);
+    });
+    linha.style.display = corresponde ? "" : "none"; 
 });
-    linha.style.display = corresponde ? "" : "none";
-  });
-});
-
 document.getElementById("btnLimpar").addEventListener("click", () => {
   campos.forEach(id => {
     const campo = document.getElementById(id);
     if (campo) campo.value = "";
   });
-
   linhas.forEach(linha => {
     linha.style.display = "";
   });
