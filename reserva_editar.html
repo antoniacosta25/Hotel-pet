@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Antônia Graciela Silva Costa">
+  <title>Editar Reserva - Hotel Pet</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <!-- Casca principal: navegação lateral ao lado do conteúdo da tela. -->
+  <div class="app-shell">
+    <!-- Navegação principal entre os módulos do hotel. -->
+    <aside class="sidebar">
+      <!-- Marca clicável: retorna ao painel. -->
+      <a class="brand" href="painel.html" aria-label="Hotel Pet - página inicial">
+        <img src="imagens/logo.svg" alt="">
+        <span>Hotel Pet</span>
+      </a>
+      <!-- Acesso às listas de pets, equipe, configurações e reservas. -->
+      <nav class="sidebar__nav" aria-label="Navegação principal">
+        <a href="pets.html" class="sidebar__link" aria-label="Pets" title="Pets"><img src="imagens/icones/pets.svg" class="nav-icon" alt=""><span>Pet</span></a>
+        <a href="usuarios.html" class="sidebar__link" aria-label="Usuários" title="Usuários"><img src="imagens/icones/users.svg" class="nav-icon" alt=""><span>Usuários</span></a>
+        <a href="configuracoes.html" class="sidebar__link" aria-label="Configurações" title="Configurações"><img src="imagens/icones/settings.svg" class="nav-icon" alt=""><span>Configurações</span></a>
+        <a href="reservas.html" class="sidebar__link is-active" aria-current="page" aria-label="Reservas" title="Reservas"><img src="imagens/icones/reservas.svg" class="nav-icon" alt=""><span>Reservas</span></a>
+      </nav>
+    </aside>
+
+    <!-- Área de trabalho ao lado do menu. -->
+    <div class="app-main">
+      <!-- Faixa rosa com acesso ao perfil da gerente. -->
+      <header class="topbar">
+        <a href="perfil.html" class="topbar__user" aria-label="Abrir perfil de Antônia Graciela Silva Costa">
+          <img src="imagens/antonia-graciela-perfil.png" alt="Foto de Antônia Graciela Silva Costa">
+          <span class="topbar__identity"><strong>Antônia Graciela Silva Costa</strong><small>Gerente</small></span>
+        </a>
+      </header>
+
+      <!-- Conteúdo específico desta tela. -->
+      <main class="page-content">
+        <!-- Breadcrumb com retorno ao painel e, quando aplicável, à lista. -->
+        <div class="breadcrumb"><a href="painel.html">Home</a> / <a href="reservas.html">Reservas</a> / Editar reserva #1</div>
+        <h1 class="page-title">Editar Reserva #1</h1>
+
+        <!-- Formulário desta tela; os rótulos identificam cada campo. -->
+        <form action="reservas.html" method="get" class="card" id="form-reserva">
+          <h2>Dados da reserva</h2>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="pet">Pet</label>
+              <select id="pet" name="pet">
+                <option selected>Toto (Poodle) - Maria da Silva</option>
+                <option>Mia (Siamês) - José da Silva</option>
+                <option>Bolinha (Angorá) - Ana Souza</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="cliente">Cliente</label>
+              <input type="text" id="cliente" name="cliente" value="Maria da Silva">
+            </div>
+            <div class="form-field">
+              <label for="checkin">Check-in</label>
+              <input type="date" id="checkin" name="checkin" value="2026-08-10">
+            </div>
+            <div class="form-field">
+              <label for="checkout">Check-out</label>
+              <input type="date" id="checkout" name="checkout" value="2026-08-14">
+            </div>
+            <div class="form-field">
+              <label for="status">Status</label>
+              <select id="status" name="status">
+                <option>Pendente</option>
+                <option selected>Em andamento</option>
+                <option>Finalizada</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="valor">Valor da diária (R$)</label>
+              <input type="number" id="valor" name="valor" value="50.00" step="0.01">
+            </div>
+            <div class="form-field form-field--full">
+              <label for="obs">Informações sobre o pet</label>
+              <textarea id="obs" name="obs">Toto é muito agitado, precisa de dois passeios por dia. Alimentação: ração 3 vezes ao dia (fornecida pelo proprietário).</textarea>
+            </div>
+
+            <div class="stay-total">
+              <span>Total de 4 diárias × R$ 50,00 =</span>
+              <strong>R$ 200,00</strong>
+            </div>
+          </div>
+        </form>
+
+        <!-- Seção que reúne informações do mesmo assunto. -->
+        <section class="card">
+          <h2>Anotações sobre a estadia</h2>
+          <div class="form-grid">
+            <div class="form-field form-field--full">
+              <label for="anotacao">Nova anotação</label>
+              <textarea id="anotacao" placeholder="Descreva como foi o dia do pet..."></textarea>
+            </div>
+          </div>
+          <div class="stay-note">
+            <p>Dia 1: Chegou animado, comeu bem. Pequeno passeio à tarde.</p>
+            <span class="stay-note__meta">Maria da Silva - 10/08/2026</span>
+          </div>
+          <div class="stay-note">
+            <p>Dia 2: Brincou bastante no pátio, adorou a nova bolinha.</p>
+            <span class="stay-note__meta">Maria da Silva - 11/08/2026</span>
+          </div>
+        </section>
+
+        <!-- Seção que reúne informações do mesmo assunto. -->
+        <section class="card">
+          <h2>Imagens da estadia</h2>
+          <div class="form-grid">
+            <div class="form-field form-field--full">
+              <label for="fotos">Adicionar imagens</label>
+              <input type="file" id="fotos" name="fotos" multiple>
+            </div>
+          </div>
+          <!-- Miniaturas ilustrativas da rotina durante a estadia. -->
+          <div class="photo-gallery">
+            <div class="stay-photo stay-photo--outing">🚶</div>
+            <div class="stay-photo stay-photo--play">🎾</div>
+            <div class="stay-photo stay-photo--meal">🍖</div>
+            <div class="stay-photo stay-photo--rest">😴</div>
+          </div>
+        </section>
+
+        <!-- Seção que reúne informações do mesmo assunto. -->
+        <section class="card">
+          <h2>Recibo / Nota da estadia</h2>
+          <p class="settings-value">O recibo fica disponível quando a reserva é <strong>Finalizada</strong>.</p>
+          <!-- Resumo ilustrativo dos valores da hospedagem. -->
+          <div class="receipt">
+            <h2>Hotel Pet - Recibo</h2>
+            <div class="profile-details__row"><span>Hospedagem (4 diárias × R$ 50,00)</span><span>R$ 200,00</span></div>
+            <div class="profile-details__row"><span>Serviços extras</span><span>R$ 20,00</span></div>
+            <div class="profile-details__row receipt-total"><span>Total</span><span class="receipt-total">R$ 220,00</span></div>
+            <p class="signature">Emitido em 14/08/2026 · Hotel Pet</p>
+          </div>
+        </section>
+
+        <div class="page-actions u-margin-top">
+          <button type="submit" form="form-reserva" class="button button--primary">Salvar alterações</button>
+          <a href="reservas.html" class="button button--secondary">Cancelar</a>
+        </div>
+      </main>
+      <!-- Crédito de autoria do protótipo acadêmico. -->
+      <footer class="site-footer">Autora: Antônia Graciela Silva Costa · Programação Web II (2026.2)</footer>
+
+    </div>
+  </div>
+</body>
+</html>
+

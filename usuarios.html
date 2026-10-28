@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Antônia Graciela Silva Costa">
+  <title>Usuários - Hotel Pet</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <!-- Casca principal: navegação lateral ao lado do conteúdo da tela. -->
+  <div class="app-shell">
+    <!-- Navegação principal entre os módulos do hotel. -->
+    <aside class="sidebar">
+      <!-- Marca clicável: retorna ao painel. -->
+      <a class="brand" href="painel.html" aria-label="Hotel Pet - página inicial">
+        <img src="imagens/logo.svg" alt="">
+        <span>Hotel Pet</span>
+      </a>
+      <!-- Acesso às listas de pets, equipe, configurações e reservas. -->
+      <nav class="sidebar__nav" aria-label="Navegação principal">
+        <a href="pets.html" class="sidebar__link" aria-label="Pets" title="Pets"><img src="imagens/icones/pets.svg" class="nav-icon" alt=""><span>Pet</span></a>
+        <a href="usuarios.html" class="sidebar__link is-active" aria-current="page" aria-label="Usuários" title="Usuários"><img src="imagens/icones/users.svg" class="nav-icon" alt=""><span>Usuários</span></a>
+        <a href="configuracoes.html" class="sidebar__link" aria-label="Configurações" title="Configurações"><img src="imagens/icones/settings.svg" class="nav-icon" alt=""><span>Configurações</span></a>
+        <a href="reservas.html" class="sidebar__link" aria-label="Reservas" title="Reservas"><img src="imagens/icones/reservas.svg" class="nav-icon" alt=""><span>Reservas</span></a>
+      </nav>
+    </aside>
+
+    <!-- Área de trabalho ao lado do menu. -->
+    <div class="app-main">
+      <!-- Faixa rosa com acesso ao perfil da gerente. -->
+      <header class="topbar">
+        <a href="perfil.html" class="topbar__user" aria-label="Abrir perfil de Antônia Graciela Silva Costa">
+          <img src="imagens/antonia-graciela-perfil.png" alt="Foto de Antônia Graciela Silva Costa">
+          <span class="topbar__identity"><strong>Antônia Graciela Silva Costa</strong><small>Gerente</small></span>
+        </a>
+      </header>
+
+      <!-- Conteúdo específico desta tela. -->
+      <main class="page-content">
+        <!-- Breadcrumb com retorno ao painel e, quando aplicável, à lista. -->
+        <div class="breadcrumb"><a href="painel.html">Home</a> / Usuários</div>
+        <h1 class="page-title">Usuários</h1>
+
+        <!-- Comandos disponíveis para continuar ou voltar ao módulo. -->
+        <div class="page-actions">
+          <a href="usuario_cadastrar.html" class="button button--primary">+ Novo</a>
+          <button type="button" class="button button--danger">Remover</button>
+          <button type="button" class="button button--success">✓ Mudar status</button>
+        </div>
+
+        <!-- Seção que reúne informações do mesmo assunto. -->
+        <section class="card">
+          <h2>Filtros de pesquisa</h2>
+          <!-- Critérios de busca apresentados para a próxima etapa do projeto. -->
+          <div class="filter-grid">
+            <div class="form-field">
+              <label for="f-id">ID</label>
+              <input type="text" id="f-id" placeholder="Ex.: 12">
+            </div>
+            <div class="form-field">
+              <label for="f-criado-de">Criado em (de)</label>
+              <input type="date" id="f-criado-de" >
+            </div>
+            <div class="form-field">
+              <label for="f-criado-ate">Criado em (até)</label>
+              <input type="date" id="f-criado-ate" >
+            </div>
+            <div class="form-field">
+              <label for="f-email">Email</label>
+              <input type="email" id="f-email" placeholder="nome@email.com" >
+            </div>
+            <div class="form-field">
+              <label for="f-nome">Nome</label>
+              <input type="text" id="f-nome" placeholder="Nome do usuário" >
+            </div>
+            <div class="form-field">
+              <label for="f-status">Status</label>
+              <select id="f-status" >
+                <option>Todos</option>
+                <option>Ativo</option>
+                <option>Inativo</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="f-funcao">Função</label>
+              <select id="f-funcao" >
+                <option>Todas</option>
+                <option>Cliente</option>
+                <option>Funcionário</option>
+                <option>Gerente</option>
+              </select>
+            </div>
+            <div class="filter-actions">
+              <button type="button" id="btnPesquisar" class="button button--primary">🔎 Pesquisar</button>
+              <button type="button" id="btnLimpar" class="button button--secondary">↻ Limpar</button>
+            </div>
+          </div>
+        </section>
+        <!-- Seção que reúne informações do mesmo assunto. -->
+        <section class="card">
+          <div class="table-scroll">
+          <!-- Dados de exemplo organizados em colunas para leitura rápida. -->
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Foto</th>
+                <th>Email</th>
+                <th>Nome</th>
+                <th>Função</th>
+                <th>Status</th>
+                <th>Criado em</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="perfil.html" class="avatar-link" aria-label="Abrir perfil de Antônia Graciela Silva Costa"><img src="imagens/antonia-graciela-perfil.png" alt="Foto de Antônia Graciela Silva Costa" class="avatar--small"></a></td>
+                <td>antoniagraciela@hotmail.com</td>
+                <td>Antônia Graciela Silva Costa</td>
+                <td>Gerente</td>
+                <td><span class="status-badge status-badge--active">Ativo</span></td>
+                <td>19/02/2020</td>
+                <td>
+                  <a href="usuario_editar.html" class="row-action row-action--edit">Editar</a>
+                  <a href="usuario_visualizar.html" class="row-action row-action--view">Visualizar</a>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="avatar--small avatar--initials" role="img" aria-label="Juliana Santos">JS</span></td>
+                <td>juliana.santos@pet.com</td>
+                <td>Juliana Santos</td>
+                <td>Funcionário</td>
+                <td><span class="status-badge status-badge--active">Ativo</span></td>
+                <td>19/02/2020</td>
+                <td>
+                  <a href="usuario_editar.html" class="row-action row-action--edit">Editar</a>
+                  <a href="usuario_visualizar.html" class="row-action row-action--view">Visualizar</a>
+                </td>
+              </tr>
+              <tr>
+                <td><img src="imagens/avatar-jose.svg" alt="Foto de José da Silva" class="avatar--small"></td>
+                <td>jose@pet.com</td>
+                <td>José da Silva</td>
+                <td>Cliente</td>
+                <td><span class="status-badge status-badge--inactive">Inativo</span></td>
+                <td>19/02/2020</td>
+                <td>
+                  <a href="usuario_editar.html" class="row-action row-action--edit">Editar</a>
+                  <a href="usuario_visualizar.html" class="row-action row-action--view">Visualizar</a>
+                </td>
+              </tr>
+              <tr>
+                <td><img src="imagens/avatar-ana.svg" alt="Foto de Ana Souza" class="avatar--small"></td>
+                <td>ana@pet.com</td>
+                <td>Ana Souza</td>
+                <td>Cliente</td>
+                <td><span class="status-badge status-badge--active">Ativo</span></td>
+                <td>03/05/2021</td>
+                <td>
+                  <a href="usuario_editar.html" class="row-action row-action--edit">Editar</a>
+                  <a href="usuario_visualizar.html" class="row-action row-action--view">Visualizar</a>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="avatar--small avatar--initials" role="img" aria-label="Carlos Mendes">CM</span></td>
+                <td>carlos@pet.com</td>
+                <td>Carlos Mendes</td>
+                <td>Cliente</td>
+                <td><span class="status-badge status-badge--active">Ativo</span></td>
+                <td>12/09/2022</td>
+                <td>
+                  <a href="usuario_editar.html" class="row-action row-action--edit">Editar</a>
+                  <a href="usuario_visualizar.html" class="row-action row-action--view">Visualizar</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </section>
+      </main>
+      <!-- Crédito de autoria do protótipo acadêmico. -->
+      <footer class="site-footer">Autora: Antônia Graciela Silva Costa · Programação Web II (2026.2)</footer>
+    </div>
+  </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const campos = [
+    "f-id",
+    "f-criado-de",
+    "f-criado-ate",
+    "f-email",
+    "f-nome",
+    "f-status",
+    "f-funcao"
+  ];
+  const botaoPesquisar = document.getElementById("btnPesquisar");
+  const botaoLimpar = document.getElementById("btnLimpar");
+  const tabela = document.querySelector(".data-table");
+  if (!botaoPesquisar || !botaoLimpar || !tabela) {
+    console.error("Não foi possível localizar os botões ou a tabela.");
+    return;
+  }
+  const normalizar = (texto) =>
+    (texto || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .trim()
+      .toLowerCase();
+  const converterData = (texto) => {
+    const partes = (texto || "").trim().split("/");
+    if (partes.length !== 3) return "";
+    const [dia, mes, ano] = partes;
+    if (!dia || !mes || !ano) return "";
+    return ano + "-" + mes.padStart(2, "0") + "-" + dia.padStart(2, "0");
+  };
+  botaoPesquisar.addEventListener("click", function () {
+    const valores = {};
+    campos.forEach((id) => {
+      const campo = document.getElementById(id);
+      valores[id] = campo ? campo.value.trim() : "";
+    });
+    const linhas = tabela.querySelectorAll("tbody tr");
+    linhas.forEach((linha) => {
+      const celulas = linha.querySelectorAll("td");
+      if (celulas.length < 7) {
+        linha.style.display = "";
+        return;
+      }
+      const email = normalizar(celulas[1].innerText);
+      const nome = normalizar(celulas[2].innerText);
+      const funcao = normalizar(celulas[3].innerText);
+      const status = normalizar(celulas[4].innerText);
+      const data = converterData(celulas[5].innerText);
+      const idLinha =
+        linha.dataset.id ||
+        linha.querySelector("[data-id]")?.dataset.id ||
+        "";
+      const buscaId = normalizar(valores["f-id"]);
+      const buscaEmail = normalizar(valores["f-email"]);
+      const buscaNome = normalizar(valores["f-nome"]);
+      const buscaStatus = normalizar(valores["f-status"]);
+      const buscaFuncao = normalizar(valores["f-funcao"]);
+      const dataDe = valores["f-criado-de"];
+      const dataAte = valores["f-criado-ate"];
+      const correspondeId =
+        !buscaId || normalizar(idLinha).includes(buscaId);
+      const correspondeEmail =
+        !buscaEmail || email.includes(buscaEmail);
+      const correspondeNome =
+        !buscaNome || nome.includes(buscaNome);
+      const correspondeStatus =
+        !buscaStatus ||
+        buscaStatus === "todos" ||
+        buscaStatus === "todas" ||
+        status.includes(buscaStatus);
+      const correspondeFuncao =
+        !buscaFuncao ||
+        buscaFuncao === "todas" ||
+        buscaFuncao === "todos" ||
+        funcao.includes(buscaFuncao);
+      const correspondeDataDe =
+        !dataDe || (data && data >= dataDe);
+      const correspondeDataAte =
+        !dataAte || (data && data <= dataAte);
+      const corresponde =
+        correspondeId &&
+        correspondeEmail &&
+        correspondeNome &&
+        correspondeStatus &&
+        correspondeFuncao &&
+        correspondeDataDe &&
+        correspondeDataAte;
+      linha.style.display = corresponde ? "" : "none";
+    });
+  });
+  botaoLimpar.addEventListener("click", function () {
+    campos.forEach((id) => {
+      const campo = document.getElementById(id);
+      if (campo) campo.value = "";
+    });
+    tabela.querySelectorAll("tbody tr").forEach((linha) => {
+      linha.style.display = "";
+    });
+  });
+});
+</script>
+</body>
+</html>
+
