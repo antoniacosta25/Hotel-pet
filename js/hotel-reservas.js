@@ -51,8 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
             if (campo) campo.value = "";
         });
         linhas.forEach(function (linha) {
-            
             linha.hidden = false;
         });
     });
+});
 });
