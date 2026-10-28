@@ -1,90 +1,70 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const formulario = document.querySelector("form");
-    const botaoPesquisar = document.querySelector(
-        'button[type="submit"], input[type="submit"]'
-    );
-    const botaoLimpar = document.querySelector(
-        'button[type="reset"], input[type="reset"]'
-    );
+    const pesquisar = document.getElementById("btn-pesquisar");
+    const limpar = document.getElementById("btn-limpar");
 
-    const tabela = document.querySelector("tbody");
+    const tabela = document.querySelector(".data-table tbody");
 
-    if (!tabela) {
-        console.error("Tabela de reservas não encontrada.");
+    if (!pesquisar || !limpar || !tabela) {
+        console.error("Botões ou tabela de reservas não encontrados.");
         return;
     }
 
-    const linhasOriginais = Array.from(tabela.querySelectorAll("tr"));
+    const linhas = Array.from(tabela.querySelectorAll("tr"));
 
-    function pesquisarReservas(event) {
-        if (event) event.preventDefault();
+    pesquisar.addEventListener("click", function (event) {
+        event.preventDefault();
 
-        const campos = Array.from(
-            document.querySelectorAll("input, select")
-        );
+        const filtros = {
+            id: document.getElementById("f-id")?.value.trim().toLowerCase() || "",
+            cliente: document.getElementById("f-cliente")?.value.trim().toLowerCase() || "",
+            pet: document.getElementById("f-pet")?.value.trim().toLowerCase() || "",
+            status: document.getElementById("f-status")?.value.trim().toLowerCase() || "",
+            entrada: document.getElementById("f-entrada")?.value || "",
+            saida: document.getElementById("f-saida")?.value || ""
+        };
 
-        const filtros = campos
-            .map(campo => ({
-                valor: campo.value.trim().toLowerCase(),
-                tipo: campo.type,
-                placeholder: (campo.placeholder || "").toLowerCase(),
-                nome: (campo.name || "").toLowerCase(),
-                id: (campo.id || "").toLowerCase()
-            }))
-            .filter(filtro => filtro.valor !== "");
+        function normalizarData(data) {
+            if (!data) return "";
+            const partes = data.split("/");
+            if (partes.length !== 3) return data;
+            return ${partes[2]}-${partes[1].padStart(2, "0")}-${partes[0].padStart(2, "0")};
+        }
 
-        linhasOriginais.forEach(linha => {
-            const texto = linha.innerText.toLowerCase();
+        linhas.forEach(function (linha) {
+            const colunas = linha.querySelectorAll("td");
 
-            const corresponde = filtros.every(filtro => {
-                if (filtro.tipo === "date") {
-                    const data = filtro.valor.split("-").reverse().join("/");
-                    return texto.includes(data);
-                }
+            if (colunas.length < 7) return;
 
-                return texto.includes(filtro.valor);
-            });
+            const id = colunas[0].innerText.replace("#", "").trim().toLowerCase();
+            const pet = colunas[1].innerText.trim().toLowerCase();
+            const cliente = colunas[2].innerText.trim().toLowerCase();
+            const entrada = normalizarData(colunas[3].innerText.trim());
+            const saida = normalizarData(colunas[4].innerText.trim());
+            const status = colunas[6].innerText.trim().toLowerCase();
+
+            const corresponde =
+                (!filtros.id || id.includes(filtros.id)) &&
+                (!filtros.cliente || cliente.includes(filtros.cliente)) &&
+                (!filtros.pet || pet.includes(filtros.pet)) &&
+                (!filtros.status || filtros.status === "todos" || status.includes(filtros.status)) &&
+                (!filtros.entrada || entrada === filtros.entrada) &&
+                (!filtros.saida || saida === filtros.saida);
 
             linha.hidden = !corresponde;
         });
-    }
+    });
 
-    function limparPesquisa(event) {
-        if (event) event.preventDefault();
+    limpar.addEventListener("click", function (event) {
+        event.preventDefault();
 
-        document.querySelectorAll("input, select").forEach(campo => {
-            if (campo.type === "submit" || campo.type === "reset" ||
-                campo.type === "button") return;
-
-            campo.value = "";
+        document.querySelectorAll(
+            "#f-id, #f-cliente, #f-pet, #f-status, #f-entrada, #f-saida"
+        ).forEach(function (campo) {
+            if (campo) campo.value = "";
         });
 
-        linhasOriginais.forEach(linha => {
+        linhas.forEach(function (linha) {
             linha.hidden = false;
         });
-    }
-
-    if (formulario) {
-        formulario.addEventListener("submit", pesquisarReservas);
-    }
-
-    if (botaoPesquisar) {
-        botaoPesquisar.addEventListener("click", pesquisarReservas);
-    }
-
-    if (botaoLimpar) {
-        botaoLimpar.addEventListener("click", limparPesquisa);
-    }
-
-    document.querySelectorAll("button, input[type='button']").forEach(botao => {
-        if (botao.innerText.trim().toLowerCase() === "pesquisar" ||
-            botao.value.trim().toLowerCase() === "pesquisar") {
-            botao.addEventListener("click", pesquisarReservas);
-        }
-
-        if (botao.innerText.trim().toLowerCase() === "limpar" ||
-            botao.value.trim().toLowerCase() === "limpar") {
-            botao.addEventListener("click", limparPesquisa);
-        }
     });
 });
