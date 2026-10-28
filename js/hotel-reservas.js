@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!data) return "";
             const partes = data.split("/");
             if (partes.length !== 3) return data;
-           return `${partes[2]}-${partes[1].padStart(2, "0")}-${partes[0].padStart(2, "0")`};
+          return partes[2] + "-" + partes[1].padStart(2, "0") + "-" + partes[0].padStart(2, "0");
         }
         linhas.forEach(function (linha) {
             const colunas = linha.querySelectorAll("td");
