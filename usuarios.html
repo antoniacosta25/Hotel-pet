@@ -284,6 +284,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+  // Atualiza a lista com os dados salvos na edição.
+const usuariosAtualizados = JSON.parse(
+    localStorage.getItem("hotelPetUsuarios") || "{}"
+);
+document.querySelectorAll(".data-table tbody tr").forEach(linha => {
+    const email = linha.cells[1].textContent.trim();
+    const usuario = usuariosAtualizados[email];
+
+    if (usuario) {
+        linha.cells[2].textContent = usuario.nome;
+        linha.cells[3].textContent = usuario.funcao;
+        linha.cells[4].textContent = usuario.status;
+    }
+}); 
 </script>
 </body>
 </html>
