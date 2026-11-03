@@ -1200,9 +1200,6 @@ a:hover {
     padding: 28px 20px;
   }
 }
-
-
-
 /* Os filtros permanecem indisponíveis enquanto a etapa cobre somente navegação. */
 .filter-grid input:disabled,
 .filter-grid select:disabled,
@@ -1210,5 +1207,11 @@ a:hover {
   cursor: not-allowed;
   opacity: 0.58;
 }
-
-
+row-action--view {
+    color: #d63384 !important;
+    font-weight: bold;
+    text-decoration: none;
+}
+.row-action--view:hover {
+    color: #a61e63 !important;
+}
