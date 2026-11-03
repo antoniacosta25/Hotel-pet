@@ -76,6 +76,15 @@ const email = parametros.get("email");
 const usuarios = JSON.parse(
     localStorage.getItem("hotelPetUsuarios") || "{}"
 );
+const usuarioAtual = usuarios[email];
+const elementoStatus = document.getElementById("status-usuario");
+
+if (usuarioAtual && elementoStatus) {
+    const ativo = usuarioAtual.status === "Ativo";
+    elementoStatus.textContent = ativo ? "Ativo" : "Inativo";
+    elementoStatus.classList.toggle("status-badge--active", ativo);
+    elementoStatus.classList.toggle("status-badge--inactive", !ativo);
+}
 const btnMudar = document.getElementById("btn-mudar-status");
 const btnRemover = document.getElementById("btn-remover-usuario");
 if (btnMudar) {
