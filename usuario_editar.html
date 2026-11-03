@@ -43,7 +43,7 @@
         <h1 class="page-title">Editar Usuário</h1>
 
         <!-- Formulário desta tela; os rótulos identificam cada campo. -->
-        <form action="usuarios.html" method="get" class="card">
+       <form id="form-editar-usuario" class="card">
           <h2>Dados do usuário</h2>
           <div class="form-grid">
             <div class="form-field">
@@ -78,7 +78,6 @@
               <input type="file" id="foto" name="foto">
             </div>
           </div>
-
           <!-- Comandos disponíveis para continuar ou voltar ao módulo. -->
           <div class="page-actions">
             <button type="submit" class="button button--primary">Salvar alterações</button>
@@ -88,9 +87,31 @@
       </main>
       <!-- Crédito de autoria do protótipo acadêmico. -->
       <footer class="site-footer">Autora: Antônia Graciela Silva Costa · Programação Web II (2026.2)</footer>
-
     </div>
   </div>
+<script>
+document.getElementById("form-editar-usuario")
+.addEventListener("submit", function(event) {
+    event.preventDefault();
+    const usuario = {
+        nome: document.getElementById("nome").value,
+        email: document.getElementById("email").value,
+        telefone: document.getElementById("telefone").value,
+        funcao: document.getElementById("funcao").value,
+        status: document.getElementById("status").value
+    };
+    const usuarios = JSON.parse(
+        localStorage.getItem("hotelPetUsuarios") || "{}"
+    );
+    usuarios[usuario.email] = usuario;
+    localStorage.setItem(
+        "hotelPetUsuarios",
+        JSON.stringify(usuarios)
+    );
+    alert("Usuário atualizado com sucesso!");
+    window.location.href = "usuarios.html";
+});
+</script>
 </body>
 </html>
 
