@@ -116,7 +116,10 @@ document.getElementById("form-editar-usuario")
     const usuarios = JSON.parse(
         localStorage.getItem("hotelPetUsuarios") || "{}"
     );
-    usuarios[usuario.email] = usuario;
+   if (emailOriginal && emailOriginal !== usuario.email) {
+    delete usuarios[emailOriginal];
+}
+usuarios[usuario.email] = usuario;
     localStorage.setItem(
         "hotelPetUsuarios",
         JSON.stringify(usuarios)
