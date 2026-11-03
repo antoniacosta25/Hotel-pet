@@ -1211,11 +1211,22 @@ a:hover {
   cursor: not-allowed;
   opacity: 0.58;
 }
-row-action--view {
-    color: #d63384 !important;
+.row-action--view {
+    color: #ffffff !important;
+    background-color: #8b2f83 !important;
     font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 6px;
     text-decoration: none;
+    display: inline-block;
 }
+
 .row-action--view:hover {
-    color: #a61e63 !important;
+    color: #ffffff !important;
+    background-color: #6a1e63 !important;
 }
+
+
+
+
+
