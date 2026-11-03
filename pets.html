@@ -193,6 +193,22 @@ const campos = [
 ];
 const tabela = document.querySelector(".data-table");
 const linhas = tabela.querySelectorAll("tbody tr");
+// Recuperar alterações salvas na edição dos pets
+linhas.forEach(linha => {
+    const celulas = linha.querySelectorAll("td");
+    const nomeOriginal = celulas[1].innerText.trim();
+
+    const salvo = localStorage.getItem("hotelPet_edicao_" + nomeOriginal);
+    if (salvo) {
+        const pet = JSON.parse(salvo);
+
+        celulas[1].innerText = pet.nome;
+        celulas[2].innerText = pet.tipo;
+        celulas[3].innerText = pet.raca;
+        celulas[4].innerText = pet.porte;
+        celulas[5].innerText = pet.tutor;
+    }
+});  
 document.getElementById("btnPesquisar").addEventListener("click", () => {
   const valores = campos.map(id =>
     (document.getElementById(id)?.value || "").trim().toLowerCase()
@@ -232,7 +248,6 @@ document.querySelectorAll('a[href="pet_editar.html"]').forEach(botao => {
             porte: celulas[4].innerText.trim(),
             tutor: celulas[5].innerText.trim()
         };
-
         const dados = new URLSearchParams(pet);
         window.location.href = "pet_editar.html?" + dados.toString();
     });
