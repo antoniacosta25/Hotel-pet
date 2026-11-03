@@ -90,6 +90,19 @@
     </div>
   </div>
 <script>
+const parametros = new URLSearchParams(window.location.search);
+const emailOriginal = parametros.get("email");
+const usuariosSalvos = JSON.parse(
+    localStorage.getItem("hotelPetUsuarios") || "{}"
+);
+const usuarioAtual = usuariosSalvos[emailOriginal];
+if (usuarioAtual) {
+    document.getElementById("nome").value = usuarioAtual.nome;
+    document.getElementById("email").value = usuarioAtual.email;
+    document.getElementById("telefone").value = usuarioAtual.telefone;
+    document.getElementById("funcao").value = usuarioAtual.funcao;
+    document.getElementById("status").value = usuarioAtual.status;
+}  
 document.getElementById("form-editar-usuario")
 .addEventListener("submit", function(event) {
     event.preventDefault();
