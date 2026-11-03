@@ -191,14 +191,12 @@ const campos = [
   "f-tamanho",
   "f-proprietario"
 ];
-
 const tabela = document.querySelector(".data-table");
 const linhas = tabela.querySelectorAll("tbody tr");
 document.getElementById("btnPesquisar").addEventListener("click", () => {
   const valores = campos.map(id =>
     (document.getElementById(id)?.value || "").trim().toLowerCase()
   );
-
   linhas.forEach(linha => {
     const celulas = linha.querySelectorAll("td");
    const dados = [
@@ -211,7 +209,6 @@ document.getElementById("btnPesquisar").addEventListener("click", () => {
     const corresponde = valores.every((valor, i) =>
       valor === "" || dados[i].includes(valor)
     );
-
     linha.style.display = corresponde ? "" : "none";
   });
 });
@@ -220,10 +217,27 @@ document.getElementById("btnLimpar").addEventListener("click", () => {
     const campo = document.getElementById(id);
     if (campo) campo.value = "";
   });
-
   linhas.forEach(linha => linha.style.display = "");
 });
-</script>                
+// Enviar os dados do pet selecionado para a tela de edição
+document.querySelectorAll('a[href="pet_editar.html"]').forEach(botao => {
+    botao.addEventListener("click", function(event) {
+        event.preventDefault();
+        const linha = this.closest("tr");
+        const celulas = linha.querySelectorAll("td");
+        const pet = {
+            nome: celulas[1].innerText.trim(),
+            tipo: celulas[2].innerText.trim(),
+            raca: celulas[3].innerText.trim(),
+            porte: celulas[4].innerText.trim(),
+            tutor: celulas[5].innerText.trim()
+        };
+
+        const dados = new URLSearchParams(pet);
+        window.location.href = "pet_editar.html?" + dados.toString();
+    });
+}); 
+</script>
 </body>
 </html>
 
