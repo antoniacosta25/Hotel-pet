@@ -45,8 +45,8 @@
         <!-- Comandos disponíveis para continuar ou voltar ao módulo. -->
         <div class="page-actions">
           <a href="usuario_editar.html" class="button button--primary">✏️ Editar usuário</a>
-          <button type="button" class="button button--success">✓ Mudar status</button>
-          <button type="button" class="button button--danger">🗑️ Remover</button>
+          <button type="button" id="btn-mudar-status" class="button button--success">✔️ Mudar status</button>
+          <button type="button" id="btn-remover-usuario" class="button button--danger">🗑️ Remover</button>
         </div>
 
         <!-- Seção que reúne informações do mesmo assunto. -->
@@ -68,9 +68,46 @@
       </main>
       <!-- Crédito de autoria do protótipo acadêmico. -->
       <footer class="site-footer">Autora: Antônia Graciela Silva Costa · Programação Web II (2026.2)</footer>
-
     </div>
   </div>
+<script>
+const parametros = new URLSearchParams(window.location.search);
+const email = parametros.get("email");
+const usuarios = JSON.parse(
+    localStorage.getItem("hotelPetUsuarios") || "{}"
+);
+const btnMudar = document.getElementById("btn-mudar-status");
+const btnRemover = document.getElementById("btn-remover-usuario");
+if (btnMudar) {
+    btnMudar.addEventListener("click", function() {
+        const usuario = usuarios[email];
+        if (!usuario) {
+            alert("Usuário não encontrado!");
+            return;
+        }
+        usuario.status =
+            usuario.status === "Ativo" ? "Inativo" : "Ativo";
+        localStorage.setItem(
+            "hotelPetUsuarios",
+            JSON.stringify(usuarios)
+        );
+        alert("Status atualizado!");
+        location.reload();
+    });
+}
+if (btnRemover) {
+    btnRemover.addEventListener("click", function() {
+        if (!confirm("Deseja remover este usuário?")) return;
+        delete usuarios[email];
+        localStorage.setItem(
+            "hotelPetUsuarios",
+            JSON.stringify(usuarios)
+        );
+        alert("Usuário removido!");
+        window.location.href = "usuarios.html";
+    });
+}
+</script>  
 </body>
 </html>
 
