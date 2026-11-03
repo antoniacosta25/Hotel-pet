@@ -528,9 +528,13 @@ a:hover {
   font-size: 13px;
   font-weight: 600;
 }
-
-.row-action--edit {
-  color: var(--color-primary);
+.row-action--view {
+    color: #ffffff;
+    background-color: #8b2f83;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .row-action--view {
