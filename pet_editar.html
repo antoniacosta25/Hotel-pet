@@ -90,7 +90,6 @@
               <input type="file" id="foto" name="foto">
             </div>
           </div>
-
           <!-- Comandos disponíveis para continuar ou voltar ao módulo. -->
           <div class="page-actions">
             <button type="submit" class="button button--primary">Salvar alterações</button>
@@ -100,7 +99,44 @@
       </main>
       <!-- Crédito de autoria do protótipo acadêmico. -->
       <footer class="site-footer">Autora: Antônia Graciela Silva Costa · Programação Web II (2026.2)</footer>
+<script>
+const parametros = new URLSearchParams(window.location.search);
+const nome = document.getElementById("nome");
+const tipo = document.getElementById("tipo");
+const raca = document.getElementById("raca");
 
+if (parametros.has("nome")) {
+    nome.value = parametros.get("nome");
+    tipo.value = parametros.get("tipo");
+    raca.value = parametros.get("raca");
+}
+const porte = parametros.get("porte");
+
+if (porte) {
+    document.querySelectorAll('input[name="tamanho"]').forEach(opcao => {
+        opcao.checked = opcao.value.toLowerCase() === porte.toLowerCase();
+    });
+}
+
+document.querySelector("form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const petAtualizado = {
+        nome: nome.value,
+        tipo: tipo.value,
+        raca: raca.value,
+        porte: document.querySelector('input[name="tamanho"]:checked')?.value || "",
+        tutor: parametros.get("tutor") || ""
+    };
+
+    localStorage.setItem(
+        "hotelPet_edicao_" + parametros.get("nome"),
+        JSON.stringify(petAtualizado)
+    );
+
+    alert("Alterações do pet salvas com sucesso!");
+});
+</script>  
     </div>
   </div>
 </body>
