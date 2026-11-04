@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Antônia Graciela Silva Costa">
+  <title>Configurações - Hotel Pet</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <!-- Casca principal: navegação lateral ao lado do conteúdo da tela. -->
+  <div class="app-shell">
+    <!-- Navegação principal entre os módulos do hotel. -->
+    <aside class="sidebar">
+      <!-- Marca clicável: retorna ao painel. -->
+      <a class="brand" href="painel.html" aria-label="Hotel Pet - página inicial">
+        <img src="imagens/logo.svg" alt="">
+        <span>Hotel Pet</span>
+      </a>
+      <!-- Acesso às listas de pets, equipe, configurações e reservas. -->
+      <nav class="sidebar__nav" aria-label="Navegação principal">
+        <a href="pets.html" class="sidebar__link" aria-label="Pets" title="Pets"><img src="imagens/icones/pets.svg" class="nav-icon" alt=""><span>Pet</span></a>
+        <a href="usuarios.html" class="sidebar__link" aria-label="Usuários" title="Usuários"><img src="imagens/icones/users.svg" class="nav-icon" alt=""><span>Usuários</span></a>
+        <a href="configuracoes.html" class="sidebar__link is-active" aria-current="page" aria-label="Configurações" title="Configurações"><img src="imagens/icones/settings.svg" class="nav-icon" alt=""><span>Configurações</span></a>
+        <a href="reservas.html" class="sidebar__link" aria-label="Reservas" title="Reservas"><img src="imagens/icones/reservas.svg" class="nav-icon" alt=""><span>Reservas</span></a>
+      </nav>
+    </aside>
+
+    <!-- Área de trabalho ao lado do menu. -->
+    <div class="app-main">
+      <!-- Faixa rosa com acesso ao perfil da gerente. -->
+      <header class="topbar">
+        <a href="perfil.html" class="topbar__user" aria-label="Abrir perfil de Antônia Graciela Silva Costa">
+          <img src="imagens/antonia-graciela-perfil.png" alt="Foto de Antônia Graciela Silva Costa">
+          <span class="topbar__identity"><strong>Antônia Graciela Silva Costa</strong><small>Gerente</small></span>
+        </a>
+      </header>
+
+      <!-- Conteúdo específico desta tela. -->
+      <main class="page-content">
+        <!-- Breadcrumb com retorno ao painel e, quando aplicável, à lista. -->
+        <div class="breadcrumb"><a href="painel.html">Home</a> / Configurações</div>
+        <h1 class="page-title">Configurações</h1>
+
+        <!-- Valores-base de hospedagem configuráveis neste navegador. -->
+        <form id="hotel-settings-form">
+          <!-- Seção que reúne informações do mesmo assunto. -->
+          <section class="card">
+            <h2>Valor da diária</h2>
+            <p class="settings-value">Valor usado como referência para as diárias do hotel neste protótipo.</p>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="diaria">Valor da diária (R$)</label>
+                <input type="number" id="diaria" name="diaria" value="50.00" step="0.01" min="0" required>
+              </div>
+              <div class="form-field">
+                <label for="diaria-extra">Diária para pets grandes (R$)</label>
+                <input type="number" id="diaria-extra" name="diaria-extra" value="50.00" step="0.01" min="0" required>
+              </div>
+            </div>
+          </section>
+
+          <!-- Limite de ocupação usado no resumo do painel. -->
+          <section class="card">
+            <h2>Vagas disponíveis</h2>
+            <p class="settings-value">Quantidade máxima de pets que o hotel pode hospedar ao mesmo tempo.</p>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="vagas">Número de vagas</label>
+                <input type="number" id="vagas" name="vagas" value="30" min="2" max="100" required>
+              </div>
+            </div>
+            <div class="capacity-info">
+              <div class="capacity-bar" role="progressbar" aria-label="Vagas ocupadas" aria-valuemin="0" aria-valuemax="30" aria-valuenow="2"><div class="capacity-bar__fill" data-capacity-fill></div></div>
+              <span class="capacity-label" data-capacity-label>2 de 30 vagas ocupadas; 28 disponíveis (7%).</span>
+            </div>
+          </section>
+
+          <p class="settings-feedback" id="settings-feedback" role="status" aria-live="polite"></p>
+          <div class="page-actions u-margin-top">
+            <button type="submit" class="button button--primary">Salvar configurações</button>
+            <a href="painel.html" class="button button--secondary">Cancelar</a>
+          </div>
+        </form>
+      </main>
+      <!-- Crédito de autoria do protótipo acadêmico. -->
+      <footer class="site-footer">Autora: Antônia Graciela Silva Costa · Programação Web II (2026.2)</footer>
+
+    </div>
+  </div>
+  <script src="js/hotel-config.js" defer></script>
+</body>
+</html>
+
